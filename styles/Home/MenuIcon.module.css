@@ -1,0 +1,33 @@
+
+
+.menuIcon{
+position: fixed;
+z-index: 3;
+left: 0;
+width: 100%;
+top: 0;
+height: 40px;
+background-color: white;
+border: 0;
+border-bottom-right-radius: 10px;
+cursor: pointer;
+transition: width 0.2s ease-out;
+}
+
+.menuIconSvg line{
+stroke: black;
+transition: all 0.6s linear;
+}
+
+.open line:nth-child(1){
+
+    transform: rotateZ(45deg) translateX(5px) translateY(-6px);
+
+}
+.open line:nth-last-child(1){
+    transform: rotateZ(-45deg) translateX(-12px) translateY(-1px);
+
+}
+.open line:nth-child(2){
+opacity: 0;
+}
