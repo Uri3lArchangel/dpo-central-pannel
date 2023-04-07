@@ -13,6 +13,12 @@ a{
     --primary-green:#369d56;
 
 }
-canvas{
-    height:350px
+/* canvas{
+    height:400px
 }
+
+@media screen and (min-width:900px) {
+    canvas{
+        height:300px
+    }
+} */

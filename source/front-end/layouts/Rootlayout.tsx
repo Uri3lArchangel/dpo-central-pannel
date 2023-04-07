@@ -1,6 +1,8 @@
 import Head from 'next/head'
 import React, { ReactNode } from 'react'
+import Footer from '../components/Footer'
 import Sidebar from '../components/Sidebar'
+import Topbar from '../components/Topbar'
 
 
 interface Props{
@@ -17,9 +19,13 @@ function Rootlayout({children}:Props) {
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     </Head>
     <header>
+      <Topbar />
         <Sidebar />
+        
       </header>
+      
       <main>{children}</main>
+    <Footer />
 
     </>
   )

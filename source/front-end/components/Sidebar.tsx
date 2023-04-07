@@ -14,7 +14,6 @@ import MenuIcon from "./Menuicon";
 function Sidebar() {
   return (
     <>
-    <MenuIcon />
     <aside id="sidenav_container" className={side.sidenav_container}>
         
       <figure className={side.profile}>

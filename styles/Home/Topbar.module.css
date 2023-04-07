@@ -1,0 +1,62 @@
+.topBar{
+    position: fixed;
+    z-index: 1;
+    background-color: white;
+    width: 100%;
+
+}
+.headerLogo img{
+    margin: auto;
+    display: block;
+    width: 100%;
+    height: 30px;
+}
+.headerLogo {
+    width: fit-content;
+    margin: auto;
+}
+.topBar h1{
+    color: white;
+    background-color: #607d8b;
+    padding: 0.6em 0;
+    text-align: center;
+}
+.topNav{
+    display: none;
+}
+
+@media screen and (min-width:900px) {
+ 
+    .topNav {
+        display: flex;
+        
+        padding: 0.4em 0;
+        background-color: black;
+        width: 100%;
+        justify-content: space-around;
+    }.pageLinks{
+        display: flex;
+        list-style: none;
+        justify-content: space-between;
+        width: 70%;
+    }.pageLinks li a{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        cursor: pointer;
+        color: white;
+
+    }
+    .pageLinks li a:hover{
+        color: #607d8b;
+    }
+    .pageLinks li p{
+        font-size: 0.76rem;
+    }
+}
+@media screen and (min-width:1200px) {
+.pageLinks{
+    width: 50%;
+}
+
+}
