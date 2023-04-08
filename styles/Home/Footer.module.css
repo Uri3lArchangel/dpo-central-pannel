@@ -1,0 +1,55 @@
+.footerContainer{
+    /* position: absolute; */
+    bottom: 0;
+    width: 100%;
+    height: 400px;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    padding: 0.7em 0;
+
+}
+.footerLogoContainer img{
+    width: 100%;
+    height: 100%;
+}
+.footerLogoContainer{
+    width: 240px;
+}
+.footerLayoutContainer{
+    display: flex;
+    justify-content: space-between;
+    width: 70%;
+    margin: auto;
+}
+.footerLayoutContainer  a{
+    display: block;
+    color: black;
+    margin: 0.4em 0;
+
+
+}
+.footerLayoutContainer  a:hover{
+    color: #729502;
+}
+.termsOfUse{
+    text-align: center;
+    border-top: 1px solid #0002;
+    padding: 1em 0 0 0;
+}
+.footerLayoutContainer h4{
+    font-size: 1.3rem;
+}
+.footerLayoutContainer div{
+    display: flex;
+    align-items: center;
+}
+.footerLayoutContainer div a{
+    margin: 0 0.4em;
+}
+.footerLayoutContainer div a:hover{
+    color: #729502;
+    
+}.icons{
+    color: #729502;
+}
