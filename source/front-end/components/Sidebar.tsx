@@ -8,8 +8,8 @@ import {
 } from "react-icons/ai";
 import { FaCoins } from "react-icons/fa";
 import Link from "next/link";
-import Image from "next/image";
-import MenuIcon from "./Menuicon";
+import { open } from "../functions/Sidemenu";
+
 
 function Sidebar() {
   return (
@@ -27,31 +27,31 @@ function Sidebar() {
       <ul className={side.sideNav}>
         <div className={side.pageLinks}>
           <li>
-            <Link href={"/"}>
+            <Link href={"/"} onClick={open}>
               <p>Overview</p>
               <HiHome className={side.icons} size={32} />
             </Link>
           </li>
           <li>
-            <Link href={"/"}>
+            <Link href={"/members"} onClick={open}>
               <p>Members</p>
               <HiUserGroup className={side.icons} size={32} />
             </Link>
           </li>
           <li>
-            <Link href={"#"}>
+            <Link href={"#"} onClick={open}>
               <p>KYC Request</p>
               <AiOutlineVerified className={side.icons} size={32} />
             </Link>
           </li>
           <li>
-            <Link href={"#"}>
+            <Link href={"#"} onClick={open}>
               <p>Token Offering</p>
               <FaCoins className={side.icons} size={30} />
             </Link>
           </li>
           <li>
-            <Link href={"#"}>
+            <Link href={"#"} onClick={open}>
               <p>Settings</p>
               <AiFillSetting className={side.icons} size={30} />
             </Link>{" "}

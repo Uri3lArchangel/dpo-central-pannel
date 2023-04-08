@@ -1,5 +1,8 @@
 import { ChartConfiguration, ChartData } from "chart.js"
+import { OverviewChartData } from "../../components/core/data/overviewData"
 import { generateChart } from "../Chartcontext"
+
+const o= OverviewChartData
 
 export const investorStatChart = ()=>{
     let canvas = document.getElementById('investorsStatChart') as HTMLCanvasElement
@@ -12,7 +15,7 @@ export const investorStatChart = ()=>{
        ],
        datasets:[{
         label:'Investors Stat',
-        data:[100,40,5],
+        data:[o.investors.accredited,o.investors.unaccredited,o.investors.pending],
         backgroundColor:[
             '#f00',
             '#0f0',

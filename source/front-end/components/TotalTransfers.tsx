@@ -1,5 +1,6 @@
 import React from 'react'
 import body from "../../../styles/Home/Body.module.css";
+import { OverviewDigitalData } from './core/data/overviewData';
 
 
 function TotalTransfers() {
@@ -7,7 +8,7 @@ function TotalTransfers() {
     <>
     <div className={body.totalTransfers}>
       <h2>Total Transfers </h2>
-      <p>12</p>
+      <p>{OverviewDigitalData.transfers}</p>
     </div>
     </>
   )

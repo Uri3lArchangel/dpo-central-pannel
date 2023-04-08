@@ -1,15 +1,15 @@
 import React, { CSSProperties, useEffect } from "react";
-import body from "../../../styles/Home/Body.module.css";
+import body from "../../../../styles/Home/Body.module.css";
 import { HiHome } from "react-icons/hi2";
-import { allowanceChart } from "../functions/component specific/allowanceChart";
-import { investorStatChart } from "../functions/component specific/investorsStatChart";
-import AllowanceChart from "./AllowanceChart";
-import InvestorsStatChart from "./InvestorsStatChart";
-import TotalTokensSold from "./TotalTokensSold";
-import TotalTransfers from "./TotalTransfers";
-import TotalTokenHolders from "./TotalTokenHolders";
-import HoldersChart from "./HoldersChart";
-import { holdersChart } from "../functions/component specific/holdersChart";
+import { allowanceChart } from "../../functions/component specific/allowanceChart";
+import { investorStatChart } from "../../functions/component specific/investorsStatChart";
+import AllowanceChart from "../AllowanceChart";
+import InvestorsStatChart from "../InvestorsStatChart";
+import TotalTokensSold from "../TotalTokensSold";
+import TotalTransfers from "../TotalTransfers";
+import TotalTokenHolders from "../TotalTokenHolders";
+import HoldersChart from "../HoldersChart";
+import { holdersChart } from "../../functions/component specific/holdersChart";
 
 
 const sectorHeading:CSSProperties={textAlign:'right', fontSize:'1.4rem',fontWeight:'600'}

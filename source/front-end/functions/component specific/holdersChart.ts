@@ -1,4 +1,5 @@
 import { ChartConfiguration, ChartData } from "chart.js"
+import { OverviewChartData } from "../../components/core/data/overviewData"
 import { generateChart } from "../Chartcontext"
 import { MONTHS } from "./allowanceChart"
 
@@ -32,7 +33,7 @@ const data:ChartData = {
 labels:labels,
 datasets:[{
     label:'Token Holders',
-    data:[1,1,3,4,2,7,10],
+    data:OverviewChartData.token.token_holders,
     backgroundColor:colorArrayOp,
     borderColor:colorArray,
     borderWidth:2

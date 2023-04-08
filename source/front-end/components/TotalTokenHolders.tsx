@@ -1,5 +1,6 @@
 import React from 'react'
 import body from "../../../styles/Home/Body.module.css";
+import { OverviewDigitalData } from './core/data/overviewData';
 
 
 function TotalTokenHolders() {
@@ -7,7 +8,7 @@ function TotalTokenHolders() {
     <>
     <div className={body.tokenHolders}>
       <h2>Token Holders</h2>
-      <p>8</p>
+      <p>{OverviewDigitalData.token_holders}</p>
     </div>
     </>
   )

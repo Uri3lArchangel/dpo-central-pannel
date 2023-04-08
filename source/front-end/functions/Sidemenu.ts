@@ -1,4 +1,4 @@
-let isOpened=false
+ let isOpened=false
 
 export function open(){
    let sidebarContainer = document.getElementById('sidenav_container') as HTMLDivElement

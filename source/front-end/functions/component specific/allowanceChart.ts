@@ -1,4 +1,5 @@
 import {ChartConfiguration,ChartData} from 'chart.js'
+import { OverviewChartData } from '../../components/core/data/overviewData';
 import { generateChart } from '../Chartcontext';
 
 export const MONTHS ={
@@ -52,7 +53,7 @@ export function allowanceChart(){
         datasets:[{
             
             label:'No. of tokens',
-            data:[0,100,200,400,500],
+            data:OverviewChartData.token.token_allowance,
             fill:true,
             backgroundColor:'#0922',
             borderColor:'rgb(40,50,60)',

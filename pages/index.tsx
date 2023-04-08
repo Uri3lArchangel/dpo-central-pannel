@@ -1,12 +1,13 @@
+import { NextApiHandler, NextApiRequest, NextApiResponse } from 'next'
 import Link from 'next/link'
-import React, { Fragment } from 'react'
-import Maincontent from '../source/front-end/components/Maincontent'
-import Sidebar from '../source/front-end/components/Sidebar'
-import Topbar from '../source/front-end/components/Topbar'
+import React, { Fragment, useEffect } from 'react'
+import Maincontent from '../source/front-end/components/Overview/Overviewpage'
 import Rootlayout from '../source/front-end/layouts/Rootlayout'
 
 
 function index() {
+
+  
   return (
     <Fragment>
       <Rootlayout>
@@ -17,3 +18,4 @@ function index() {
 }
 
 export default index
+

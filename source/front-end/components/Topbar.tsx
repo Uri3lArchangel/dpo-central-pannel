@@ -25,7 +25,7 @@ function Topbar() {
             </Link>
           </li>
           <li>
-            <Link href={"/"}>
+            <Link href={"/members"}>
               <p>Members</p>
               <HiUserGroup className={top.icons} size={25} />
             </Link>
