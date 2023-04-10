@@ -2,6 +2,7 @@
   /* min-height: 100vh; */
   height: fit-content;
   padding: 5em 0;
+  
 }
 .mainContentContainer > main {
   display: grid;

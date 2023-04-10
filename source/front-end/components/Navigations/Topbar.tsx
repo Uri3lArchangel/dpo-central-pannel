@@ -1,8 +1,8 @@
 import Image from "next/image";
 import React from "react";
 import top from "/styles/Home/Topbar.module.css";
-import headerLogo from "../../../public/assets/directprivateoffers-logo-bd.png";
-import MenuIcon from "./Menuicon";
+import headerLogo from "../../../../public/assets/directprivateoffers-logo-bd.png";
+import MenuIcon from "../Menuicon";
 import Link from "next/link";
 import { AiFillSetting, AiOutlineVerified } from "react-icons/ai";
 import { HiHome, HiUserGroup } from "react-icons/hi2";
@@ -37,8 +37,8 @@ function Topbar() {
             </Link>
           </li>
           <li>
-            <Link href={"#"}>
-              <p>Token Offering</p>
+            <Link href={"/token-dashboard"}>
+              <p>Token Dashboard</p>
               <FaCoins className={top.icons} size={25} />
             </Link>
           </li>
@@ -50,7 +50,7 @@ function Topbar() {
           </li>
         </div>
         <div className={top.signOut_btn}>
-          <button>Sign Out</button>
+          {true?<button id="signin">Sign In / Sign Up</button>:<button id="signout">Sign Out</button>}
         </div>
       </ul>
       </nav>

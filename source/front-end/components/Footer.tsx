@@ -16,7 +16,7 @@ function Footer() {
         <Image src={footerLogo} alt='DPO' />
       </figure>
       <div>Call Us: <CgPhone className={ft.icons} size={30} /> <Link href={'tel:+16473938417'}>+16473938417</Link></div>
-      <div>Email Us: <CgMail className={ft.icons} size={30} /><Link href={'mailto: adsco@directprivateoffers.ca'}>adsco@directprivateoffers.ca</Link></div>
+      <div>Email Us: <CgMail className={ft.icons} size={30} /><Link href={'mailto: adsco@directprivateoffers.ca'}>adsco@directprivateoffers.com</Link></div>
     </section>
     <section>
       <h4>List</h4>

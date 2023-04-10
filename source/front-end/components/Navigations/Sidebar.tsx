@@ -1,5 +1,5 @@
 import React from "react";
-import side from "../../../styles/Home/Sidebar.module.css";
+import side from "../../../../styles/Home/Sidebar.module.css";
 import { HiHome, HiUserGroup } from "react-icons/hi2";
 import {
   AiOutlineVerified,
@@ -8,7 +8,7 @@ import {
 } from "react-icons/ai";
 import { FaCoins } from "react-icons/fa";
 import Link from "next/link";
-import { open } from "../functions/Sidemenu";
+import { open } from "../../functions/Sidemenu";
 
 
 function Sidebar() {
@@ -45,8 +45,8 @@ function Sidebar() {
             </Link>
           </li>
           <li>
-            <Link href={"#"} onClick={open}>
-              <p>Token Offering</p>
+            <Link href={"/token-dashboard"} onClick={open}>
+              <p>Token Dashboard</p>
               <FaCoins className={side.icons} size={30} />
             </Link>
           </li>

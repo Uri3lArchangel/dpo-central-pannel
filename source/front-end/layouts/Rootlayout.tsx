@@ -1,8 +1,8 @@
 import Head from "next/head";
 import React, { ReactNode, Suspense } from "react";
 import Footer from "../components/Footer";
-import Sidebar from "../components/Sidebar";
-import Topbar from "../components/Topbar";
+import Sidebar from "../components/Navigations/Sidebar";
+import Topbar from "../components/Navigations/Topbar";
 
 interface Props {
   children: ReactNode;
@@ -21,7 +21,7 @@ function Rootlayout({ children }: Props) {
         <Topbar />
         <Sidebar />
       </header>
-         <main style={{backgroundColor:'#efefef'}}>{children}</main>
+         <main style={{backgroundColor:'#efefef',paddingTop:'2em'}}>{children}</main>
 
       <Footer />
     </>

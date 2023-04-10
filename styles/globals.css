@@ -1,3 +1,8 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 *{
     padding: 0;
     margin: 0;
@@ -13,3 +18,4 @@ a{
     --primary-green:#369d56;
 
 }
+

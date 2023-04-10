@@ -1,6 +1,6 @@
 import React from 'react'
-import body from "../../../styles/Home/Body.module.css";
-import { OverviewChartData } from './core/data/overviewData';
+import body from "../../../../styles/Home/Body.module.css";
+import { OverviewChartData } from '../core/data/overviewData';
 
 
 function HoldersChart() {

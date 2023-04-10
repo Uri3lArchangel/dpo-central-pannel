@@ -28,6 +28,7 @@
     display: block;
     color: black;
     margin: 0.4em 0;
+    line-break: anywhere;
 
 
 }.footerLayoutContainer section{
@@ -40,6 +41,7 @@
     text-align: center;
     border-top: 1px solid #0002;
     padding: 1em 0 3em 0;
+    line-break: anywhere;
 }
 .footerLayoutContainer h4{
     font-size: 1.3rem;
@@ -47,6 +49,7 @@
 .footerLayoutContainer div{
     display: flex;
     align-items: center;
+    flex-wrap: wrap;
 }
 .footerLayoutContainer div a{
     margin: 0 0.4em;

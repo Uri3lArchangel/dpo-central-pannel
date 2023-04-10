@@ -3,12 +3,12 @@ import body from "../../../../styles/Home/Body.module.css";
 import { HiHome } from "react-icons/hi2";
 import { allowanceChart } from "../../functions/component specific/allowanceChart";
 import { investorStatChart } from "../../functions/component specific/investorsStatChart";
-import AllowanceChart from "../AllowanceChart";
-import InvestorsStatChart from "../InvestorsStatChart";
+import AllowanceChart from "../Charts/AllowanceChart";
+import InvestorsStatChart from "../Charts/InvestorsStatChart";
 import TotalTokensSold from "../TotalTokensSold";
 import TotalTransfers from "../TotalTransfers";
 import TotalTokenHolders from "../TotalTokenHolders";
-import HoldersChart from "../HoldersChart";
+import HoldersChart from "../Charts/HoldersChart";
 import { holdersChart } from "../../functions/component specific/holdersChart";
 
 
