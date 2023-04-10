@@ -7,7 +7,7 @@ box-shadow: 2px 2px 20px #0003;
 border-top: 1px solid #1677ff;
 user-select: none;
 }
-.Container *{
+.Container  *{
     display: block;
 }
 .Container input{
@@ -20,10 +20,35 @@ user-select: none;
 .Container button{
     margin: auto;
 }
+.Container *[class='custom']{
+    display: flex;
+}
 
 .Container h3{
     font-size: 1.5rem;
+    
+}.Container label[class='left']{
+    text-align: left;
 }
+.Container div[class='rflexable']{
+display: flex;
+justify-content: right;
+}
+.Container div[class='rflexable'] *{
+margin: 0 0.5em;
+}
+.Container div[class='lflexable'] *{
+    margin: 0 0.5em;
+    }
+.Container div[class='lflexable']{
+
+    display: flex;
+    justify-content: left;
+
+}
+
+
+
 @media screen and (min-width:480px) {
     .Container{
         width: 60%;

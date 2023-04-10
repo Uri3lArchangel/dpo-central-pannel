@@ -9,6 +9,7 @@
     background-color: white;
     box-shadow: 1px 1px 20px #0004;
     padding: 2em 1.7em;
+    z-index: 2;
 }
 
 .formContainer *{

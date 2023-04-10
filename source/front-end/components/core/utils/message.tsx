@@ -1,7 +1,13 @@
 import React from 'react';
 import { Button, message } from 'antd';
 
-const Message: React.FC = () => {
+interface Props{
+  loading:String,
+  success:String,
+  text:String
+}
+
+const Message = ({loading,success,text}:Props) => {
   const [messageApi, contextHolder] = message.useMessage();
   const key = 'updatable';
 
@@ -9,13 +15,13 @@ const Message: React.FC = () => {
     messageApi.open({
       key,
       type: 'loading',
-      content: 'Adding...',
+      content: loading,
     });
     setTimeout(() => {
       messageApi.open({
         key,
         type: 'success',
-        content: 'Added Successfully!',
+        content: success,
         duration: 2,
       });
     }, 1000); 
@@ -25,7 +31,7 @@ const Message: React.FC = () => {
     <>
       {contextHolder}
       <Button onClick={openMessage}>
-        Add Member
+        {text}
       </Button>
     </>
   );

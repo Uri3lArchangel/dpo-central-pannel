@@ -27,7 +27,7 @@ function Memberspage() {
         <input required type="email"  id="email"/>
         <label htmlFor="role"></label>
         <Drop label='Role'/>
-        <Message />
+        <Message text="Add Member" loading={'Adding.....'} success={'Added Member'} />
       </Form>:<></>}
     <article className={mbHome.mainContentContainer}  onClick={closeFormToggle}>
       <aside>

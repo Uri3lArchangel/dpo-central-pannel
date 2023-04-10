@@ -43,7 +43,7 @@ function Topbar() {
             </Link>
           </li>
           <li>
-            <Link href={"#"}>
+            <Link href={"/settings"}>
               <p>Settings</p>
               <AiFillSetting className={top.icons} size={25} />
             </Link>{" "}
