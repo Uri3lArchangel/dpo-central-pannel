@@ -1,14 +1,16 @@
-import React from 'react';
-import { EyeInvisibleOutlined, EyeTwoTone } from '@ant-design/icons';
-import { Button, Input, Space } from 'antd';
+import React from "react";
+import { EyeInvisibleOutlined, EyeTwoTone } from "@ant-design/icons";
+import { Button, Input, Space } from "antd";
 
-const PasswordInput: React.FC = () => {
-  const [passwordVisible, setPasswordVisible] = React.useState(false);
+interface Props {
+  placeholder?: string;
+  classname?:string
+}
 
+const PasswordInput = ({ placeholder,classname }: Props) => {
   return (
-    <Space direction="horizontal" className='custom' >
-      <Input.Password placeholder="input password"  style={{display:'flex',height:'min-content'}} />
-    </Space>
+    
+      <Input.Password placeholder={placeholder} className={classname} />
   );
 };
 

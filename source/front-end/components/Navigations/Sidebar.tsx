@@ -39,7 +39,7 @@ function Sidebar() {
             </Link>
           </li>
           <li>
-            <Link href={"#"} onClick={open}>
+            <Link href={"/"} onClick={open}>
               <p>KYC Request</p>
               <AiOutlineVerified className={side.icons} size={32} />
             </Link>
@@ -51,7 +51,7 @@ function Sidebar() {
             </Link>
           </li>
           <li>
-            <Link href={"#"} onClick={open}>
+            <Link href={"/settings"} onClick={open}>
               <p>Settings</p>
               <AiFillSetting className={side.icons} size={30} />
             </Link>{" "}
