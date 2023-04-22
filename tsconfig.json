@@ -15,6 +15,6 @@
     "jsx": "preserve",
     "incremental": true
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "pages/members", "source/front-end/components/core/utils/Dropdown.tsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "pages/members", "source/front-end/components/core/utils/Dropdown.tsx", "source/front-end/components/core/data/a.js"],
   "exclude": ["node_modules"]
 }

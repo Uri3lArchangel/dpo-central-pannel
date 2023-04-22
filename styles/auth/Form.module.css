@@ -1,0 +1,68 @@
+.formContainer{
+    min-height: 100vh;
+
+}
+.formContainer > section{
+    box-shadow: 1px 1px 10px #0001;
+    position: absolute;
+    background-color: white;
+    padding: 1.4em 0.9em;
+    top: 30%;
+    width: 100%;
+}
+.formContainer > section > div{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 1.9em 0 0.5em 0;
+    border-radius: 10px;
+    border: 1px solid #0005;
+    padding: 0 0.3em;
+
+
+}
+
+.formContainer > section  input{
+display: block;
+height: 45px;
+outline: 0;
+width: 90%;
+}
+.icons{
+    color: #a7adb8;
+}
+.submit{
+margin: 1.4em 0 0.3em 0;
+}
+.formContainer a[class='forgot']{
+    display: none;
+    color: red;
+
+}
+
+@media screen and (min-width:578px) {
+    .formContainer > section{
+        width: 60%;
+        left: 0;
+        right: 0;
+        margin: auto;
+        border-radius: 10px;
+    }
+}
+@media screen and (min-width:900px) {
+    .formContainer > section{
+    width: 50%;
+    }
+}
+
+@media screen and (min-width:1024px) {
+    .formContainer > section{
+        width: 40%;
+        }
+}
+
+@media screen and (min-width:1200px) {
+    .formContainer > section{
+        width: 25%;
+        }
+}

@@ -1,16 +1,18 @@
-import React from "react";
+import React, { ChangeEventHandler } from "react";
 import { EyeInvisibleOutlined, EyeTwoTone } from "@ant-design/icons";
-import { Button, Input, Space } from "antd";
+import { Button, Input, InputRef, Space } from "antd";
 
 interface Props {
   placeholder?: string;
-  classname?:string
+  classname?:string;
+  ref?:React.RefObject<InputRef>;
+  change?:ChangeEventHandler
 }
 
-const PasswordInput = ({ placeholder,classname }: Props) => {
+const PasswordInput = ({ placeholder,classname,ref,change }: Props) => {
   return (
     
-      <Input.Password placeholder={placeholder} className={classname} />
+      <Input.Password onChange={change} placeholder={placeholder} className={classname} ref={ref} />
   );
 };
 

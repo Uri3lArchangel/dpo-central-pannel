@@ -3,18 +3,15 @@ import React, { ReactNode, Suspense } from "react";
 import Footer from "../components/Footer";
 import Sidebar from "../components/Navigations/Sidebar";
 import Topbar from "../components/Navigations/Topbar";
-import { createContext } from "react";
+import TopbarNoAuth from "../components/Navigations/TopbarNoAuth";
 
 interface Props {
-  children?: ReactNode;
-  cookie?:string | undefined
+  children: ReactNode;
 }
-export const CookieContext = createContext<string>('')
 
-
-function Rootlayout({ children,cookie }: Props) {
+function RootlayoutNoAuth({ children }: Props) {
   return (
-    <CookieContext.Provider value={cookie!}>
+    <>
       <Head>
         <title>Direct Private Offers Dashboard Panel</title>
         <link rel="icon" href="/assets/handshake.png" />
@@ -22,14 +19,14 @@ function Rootlayout({ children,cookie }: Props) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
       <header>
-        <Topbar />
+        <TopbarNoAuth />
         <Sidebar />
       </header>
          <main style={{backgroundColor:'#efefef',paddingTop:'2em'}}>{children}</main>
 
       <Footer />
-    </CookieContext.Provider>
+    </>
   );
 }
 
-export default Rootlayout;
+export default RootlayoutNoAuth;

@@ -4,17 +4,17 @@ import Router, { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import Loading from "../source/front-end/layouts/loading";
 import Head from "next/head";
+import { NextApiHandler, NextPageContext } from "next";
+import { cookies } from  'next/headers'
 
 export default function App({ Component, pageProps }: AppProps) {
   const [loading, setLoading] = useState(false);
   const router = useRouter();
   const startLoad = () => {
     setLoading(true);
-    console.log('start')
   };
   const endLoad = () => {
     setLoading(false);
-    console.log('end')
   };
 
   useEffect(() => {
@@ -41,3 +41,4 @@ export default function App({ Component, pageProps }: AppProps) {
     );
   }
 }
+

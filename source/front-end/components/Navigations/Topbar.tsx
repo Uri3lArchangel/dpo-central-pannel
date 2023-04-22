@@ -1,5 +1,5 @@
 import Image from "next/image";
-import React from "react";
+import React, { useContext, useState } from "react";
 import top from "/styles/Home/Topbar.module.css";
 import headerLogo from "../../../../public/assets/directprivateoffers-logo-bd.png";
 import MenuIcon from "../Menuicon";
@@ -7,8 +7,28 @@ import Link from "next/link";
 import { AiFillSetting, AiOutlineVerified } from "react-icons/ai";
 import { HiHome, HiUserGroup } from "react-icons/hi2";
 import { FaCoins } from "react-icons/fa";
+import { CookieContext } from "../../layouts/Rootlayout";
+import axios from "axios";
+import { useRouter } from "next/router";
+import { sliceCookie } from "../../../Backend/Utils/spliceCookie";
+import { jwtDecode } from "../../../Backend/Utils/Jwt";
+
 
 function Topbar() {
+  const Cookie = useContext(CookieContext)
+  console.log(Cookie)
+  const router = useRouter()
+  const logout = async()=>{
+   let r =  await axios.post('/api/logout',{})
+   if(r.data.message === 'success'){
+    router.reload()
+   }
+  }
+  let cookieData = sliceCookie(Cookie)
+
+ if(jwtDecode(cookieData).role != 'Admin'){
+  
+ }
   return (
     <div >
       <nav className={top.topBar}>
@@ -31,7 +51,7 @@ function Topbar() {
             </Link>
           </li>
           <li>
-            <Link href={"#"}>
+            <Link href={"/kyc-request"}>
               <p>KYC Request</p>
               <AiOutlineVerified className={top.icons} size={25} />
             </Link>
@@ -50,7 +70,9 @@ function Topbar() {
           </li>
         </div>
         <div className={top.signOut_btn}>
-          {true?<button id="signin">Sign In / Sign Up</button>:<button id="signout">Sign Out</button>}
+          {Cookie?<button id="signout" onClick={logout}>Sign Out</button>:<button id="signin" onClick={()=>{
+            router.push('/auth')
+          }}>Sign In</button>}
         </div>
       </ul>
       </nav>

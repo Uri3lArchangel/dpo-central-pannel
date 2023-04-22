@@ -1,7 +1,6 @@
-import { Fragment, useState } from 'react'
+import { Fragment, MutableRefObject, useRef, useState } from 'react'
 import { Listbox, Transition } from '@headlessui/react'
 import { HiCheck, HiChevronDown } from 'react-icons/hi2'
-
 const people = [
   {
     id: 1,
@@ -13,7 +12,7 @@ const people = [
   },
   {
     id: 3,
-    name: 'Validator',
+    name: 'TA',
   }
 
 ]
@@ -22,21 +21,21 @@ function classNames(...classes:any[]) {
   return classes.filter(Boolean).join(' ')
 }
 interface props{
-  label:String
+  label:String;
 }
-
+export let role:{id:number,name:string}
 export default function Drop({label}:props) {
   const [selected, setSelected] = useState(people[2])
-
+  role=selected
   return (
-    <Listbox value={selected} onChange={setSelected}>
+    <Listbox value={selected}  onChange={setSelected}>
       {({ open }) => (
         <>
+      
           <Listbox.Label className="block text-sm font-medium leading-6 text-gray-900">{label}</Listbox.Label>
           <div className="relative mt-2">
             <Listbox.Button className="relative w-full cursor-default rounded-md bg-white py-1.5 pl-3 pr-10 text-left text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 sm:text-sm sm:leading-6">
               <span className="flex items-center">
-                {/* <img src={selected.avatar} alt="" className="h-5 w-5 flex-shrink-0 rounded-full" /> */}
                 <span className="ml-3 block truncate">{selected.name}</span>
               </span>
               <span className="pointer-events-none absolute inset-y-0 right-0 ml-3 flex items-center pr-2">
@@ -64,13 +63,15 @@ export default function Drop({label}:props) {
                     value={person}
                   >
                     {({ selected, active }) => (
+                      
                       <>
                         <div className="flex items-center">
-                          {/* <img src={person.avatar} alt="" className="h-5 w-5 flex-shrink-0 rounded-full" /> */}
-                          <span
+                          <span 
+                        
                             className={classNames(selected ? 'font-semibold' : 'font-normal', 'ml-3 block truncate')}
                           >
                             {person.name}
+                            
                           </span>
                         </div>
 
