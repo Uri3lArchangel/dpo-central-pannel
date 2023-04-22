@@ -24,11 +24,10 @@ function Topbar() {
     router.reload()
    }
   }
-  let cookieData = sliceCookie(Cookie)
+  // let cookieData = sliceCookie(Cookie)
 
- if(jwtDecode(cookieData).role != 'Admin'){
-  
- }
+ 
+ 
   return (
     <div >
       <nav className={top.topBar}>

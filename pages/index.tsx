@@ -25,7 +25,9 @@ export async function getServerSideProps(context:NextPageContext){
   
  if(!cookie){
   return {
-    props:{}
+    props:{
+      
+    }
   }
  }
 
