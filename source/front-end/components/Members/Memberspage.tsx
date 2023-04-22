@@ -17,7 +17,7 @@ const m = members;
 function Memberspage({cookie}:CookieProps) {
   let Role
   if(cookie){
-  Role =jwtDecode(sliceCookie(cookie!)).role
+  Role =jwtDecode(sliceCookie(cookie)!).role
   }
   const [messageApi, contextHolder] = message.useMessage();
   const [formDisplayed, setFormDisplay] = useState(false);
