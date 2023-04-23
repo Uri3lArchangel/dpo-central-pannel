@@ -25,15 +25,17 @@ export interface kycdataInterface{
 export interface CookieMemberProps{
   cookie?:string,
   MemberObject?:a,
-  kycdata?:string
+  kycdata?:string,
+  url?:string;
+  enviroment?:string
 }
 
-function index({cookie,MemberObject}:CookieMemberProps) {
+function index({cookie,MemberObject,url,enviroment}:CookieMemberProps) {
 
   return (
     <Fragment>
         <Rootlayout cookie={cookie}>
-            <SettingsPage cookie={cookie} MemberObject={MemberObject} />
+            <SettingsPage cookie={cookie} url={url} enviroment={enviroment} MemberObject={MemberObject} />
         </Rootlayout>
     </Fragment>
     )
@@ -43,7 +45,8 @@ export default index
 
 export async function getServerSideProps(context:NextPageContext){
     const cookie = context.req?.headers.cookie
-    
+    const enviroment = process.env.NODE_ENV
+    const url = process.env.URL
    if(!cookie){
     return {
       redirect:{
@@ -57,7 +60,7 @@ export async function getServerSideProps(context:NextPageContext){
   
     return {
       props:{
-  cookie,MemberObject
+  cookie,MemberObject,url,enviroment
       }
   }
     }

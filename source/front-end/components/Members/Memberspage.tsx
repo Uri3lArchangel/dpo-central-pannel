@@ -14,7 +14,7 @@ import { sliceCookie } from "../../../Backend/Utils/spliceCookie";
 import { jwtDecode } from "../../../Backend/Utils/Jwt";
 
 const m = members;
-function Memberspage({cookie}:CookieProps) {
+function Memberspage({cookie,url,enviroment}:CookieProps) {
   let Role
   if(cookie){
   Role =jwtDecode(sliceCookie(cookie)!).role
@@ -52,11 +52,10 @@ function Memberspage({cookie}:CookieProps) {
         Role: role.name,
       };
       messageHandle("Adding Member ...", "loading", 1000);
-      await axios.post("/api/addMember", data);
+      await axios.post(enviroment === 'development'?'/api/addMember':`${url}/api/addMember`, data);
       messageApi.destroy();
       messageHandle("Member Added...", "success", 4);
     } catch (err: any) {
-      console.log(err);
       let key: string[] | undefined;
       let code = err.response.data.message.code;
       if (err.response.data.message.keyValue) {

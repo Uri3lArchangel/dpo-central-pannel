@@ -3,21 +3,30 @@ import body from "../../../../styles/Home/Body.module.css";
 import { HiHome } from "react-icons/hi2";
 import { allowanceChart } from "../../functions/component specific/allowanceChart";
 import { investorStatChart } from "../../functions/component specific/investorsStatChart";
-import AllowanceChart from "../Charts/AllowanceChart";
+import PriceChart from "../Charts/AllowanceChart";
 import InvestorsStatChart from "../Charts/InvestorsStatChart";
 import TotalTokensSold from "../TotalTokensSold";
 import TotalTransfers from "../TotalTransfers";
 import TotalTokenHolders from "../TotalTokenHolders";
 import HoldersChart from "../Charts/HoldersChart";
 import { holdersChart } from "../../functions/component specific/holdersChart";
+import { CookieProps } from "../../../../pages";
 
 
 const sectorHeading:CSSProperties={textAlign:'right', fontSize:'1.4rem',fontWeight:'600'}
 
-function Maincontent() {
+function Maincontent({res,transferCount,soldTokens,investorsStatusStats}:CookieProps) {
+  let price:number
+  if(res){
+    Number.isNaN(parseFloat(res)) 
+    price=0
+  }else{
+    price=Number(parseFloat(res!))
+  }
+
   useEffect(() => {
-    allowanceChart();
-    investorStatChart();
+    allowanceChart(price);
+    investorStatChart(investorsStatusStats!);
     holdersChart();
 
     return () => {};
@@ -34,16 +43,16 @@ function Maincontent() {
         
             <aside style={sectorHeading}>Data</aside>
             <div>
-            <TotalTokensSold />
-            <TotalTransfers />
+            <TotalTokensSold soldTokens={soldTokens} />
+            <TotalTransfers transferCount={transferCount} />
             <TotalTokenHolders />
           </div>
         </section>
         <section>
         <aside style={sectorHeading}>Charts</aside>
           <div>
-          <InvestorsStatChart />
-          <AllowanceChart />
+          <InvestorsStatChart investorsStatusStats={investorsStatusStats}/>
+          <PriceChart price={price} />
           <HoldersChart />
           </div>
         </section>

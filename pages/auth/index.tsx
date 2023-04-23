@@ -4,11 +4,15 @@ import SigninPage from "../../source/front-end/components/Auth/SigninPage";
 import { generatePassword } from "../../source/Backend/Utils/PasswordHashingFunction";
 import { NextPageContext } from "next";
 
-function Signin() {
-  let ab = "abc123";
+interface Props{
+  enviroment?:string
+  url?:string
+}
+
+function Signin({enviroment,url}:Props) {
   return (
     <Fragment>
-      <SigninPage />
+      <SigninPage url={url} enviroment={enviroment} />
     </Fragment>
   );
 }
@@ -16,6 +20,8 @@ function Signin() {
 export default Signin;
 
 export async function getServerSideProps(context: NextPageContext) {
+  const enviroment = process.env.NODE_ENV
+  const url = process.env.URL
   if (context.req?.headers.cookie) {
 
     return {
@@ -27,7 +33,7 @@ export async function getServerSideProps(context: NextPageContext) {
   }else{
     return {
       props:{
-        
+        enviroment,url
       }
     }
   }

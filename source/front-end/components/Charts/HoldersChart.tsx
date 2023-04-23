@@ -7,7 +7,7 @@ function HoldersChart() {
   return (
     <>
     <div className={body.holdersChart}>
-      <h2>Token Holders: {OverviewChartData.token.token_holders.slice(-1)}</h2>
+      <h2>Token Holders: {OverviewChartData.token.token_holders().slice(-1)}</h2>
       <canvas id="holdersChart"  width={'500%'} ></canvas>
     </div>
   </>

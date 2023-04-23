@@ -5,14 +5,15 @@ import { Button, Input, InputRef, Space } from "antd";
 interface Props {
   placeholder?: string;
   classname?:string;
-  ref?:React.RefObject<InputRef>;
-  change?:ChangeEventHandler
+  ref?:React.LegacyRef<InputRef>;
+  change?:ChangeEventHandler,
+  id?:string
 }
 
-const PasswordInput = ({ placeholder,classname,ref,change }: Props) => {
+const PasswordInput = ({ placeholder,classname,ref,change,id }: Props) => {
   return (
     
-      <Input.Password onChange={change} placeholder={placeholder} className={classname} ref={ref} />
+      <Input.Password onChange={change} id={id} placeholder={placeholder} className={classname}  />
   );
 };
 

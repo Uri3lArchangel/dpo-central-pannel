@@ -1,5 +1,4 @@
 import { NoticeType } from "antd/es/message/interface";
-import axios from "axios";
 
  const returnStruct: returnStructType = {
   msg: "",

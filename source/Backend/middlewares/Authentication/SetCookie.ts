@@ -7,7 +7,7 @@ export const setCookie= (token:string,res:NextApiResponse)=>{
     res.setHeader("Set-Cookie",cookie.serialize("session",token,{
         httpOnly:true,
         secure:true,
-        maxAge:60 * 60,
+        maxAge:120 * 120,
         sameSite:"strict",
       path:'/',
       

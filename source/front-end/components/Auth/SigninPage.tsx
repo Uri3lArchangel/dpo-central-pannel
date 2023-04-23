@@ -8,8 +8,11 @@ import { handleLoginCreds } from "../../../Backend/Assertions/HandlePost";
 import { NoticeType } from "antd/es/message/interface";
 import axios from "axios";
 import { useRouter } from "next/router";
-
-function SigninPage() {
+interface Props{
+  enviroment?:string;
+  url?:string
+}
+function SigninPage({enviroment,url}:Props) {
   const emailref = useRef<HTMLInputElement>(null);
   const passRef = useRef<HTMLInputElement>(null);
   const [messageApi, contextHolder] = message.useMessage();
@@ -37,7 +40,7 @@ const router = useRouter()
       password: passData,
     };
     messageHandle('Logging in ...','loading',1000)
-    const resp = await axios.post("/api/login", data);
+    const resp = await axios.post(enviroment == 'development'?'/api/login':`${url}/api/login`, data);
     if (resp.data.success) {
       messageApi.destroy('1')
       messageHandle(`Correct Logging in as ${resp.data.email}` ,'success',5)

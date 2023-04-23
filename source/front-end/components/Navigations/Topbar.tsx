@@ -19,7 +19,7 @@ function Topbar() {
   console.log(Cookie)
   const router = useRouter()
   const logout = async()=>{
-   let r =  await axios.post('/api/logout',{})
+   let r =  await axios.post('https://dpo-central-pannel.vercel.app/api/logout',{})
    if(r.data.message === 'success'){
     router.reload()
    }

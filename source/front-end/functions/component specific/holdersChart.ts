@@ -33,7 +33,7 @@ const data:ChartData = {
 labels:labels,
 datasets:[{
     label:'Token Holders',
-    data:OverviewChartData.token.token_holders,
+    data:OverviewChartData.token.token_holders(),
     backgroundColor:colorArrayOp,
     borderColor:colorArray,
     borderWidth:2

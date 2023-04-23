@@ -13,7 +13,7 @@ import { passwordCheck } from "../../../Backend/Assertions/passCheck";
 import { returnStructType } from "../../../Backend/Assertions/HandleProfileChange";
 import { jwtSign } from "../../../Backend/Utils/Jwt";
 
-function ProfileChildren({MemberObject}:CookieMemberProps) {
+function ProfileChildren({MemberObject,url,enviroment}:CookieMemberProps) {
   const [messageApi, contextHolder] = message.useMessage();
   const [passwordPromptDisplay, setPromptDisplay] = useState(false);
   const router = useRouter()
@@ -81,7 +81,7 @@ function ProfileChildren({MemberObject}:CookieMemberProps) {
     let data = {
       password
     }
-   let r:returnStructType = await passwordCheck(data)
+   let r:returnStructType = await passwordCheck(data,url!,enviroment!)
    if(r){
    messageHandle(r.msg,r.type,r.time)
    setTimeout(()=>{messageApi.destroy("3")},5000)
@@ -99,7 +99,7 @@ function ProfileChildren({MemberObject}:CookieMemberProps) {
      email: EmailValue,
      uname:UnameValue,
     }
-   let res= await axios.post('/api/settings/profile',data)
+   let res= await axios.post(enviroment === 'development'?'/api/settings/profile':`${url}/api/settings/profile`,data)
     triggerPromptClose(e)
     let r:{msg:string,type:NoticeType,time:number} = res.data.message
     messageApi.destroy("3")

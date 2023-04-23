@@ -42,7 +42,8 @@ export const MONTHS ={
 
 
 
-export function allowanceChart(){
+export function allowanceChart(price:number){
+    
     let canvas = document.getElementById('allowanceChart') as HTMLCanvasElement
     const ctx = canvas.getContext('2d') as CanvasRenderingContext2D
     const labels = MONTHS.all
@@ -52,12 +53,13 @@ export function allowanceChart(){
         
         datasets:[{
             
-            label:'No. of tokens',
-            data:OverviewChartData.token.token_allowance,
+            label:'DPO Price',
+            data:OverviewChartData.token.token_price(price),
             fill:true,
             backgroundColor:'#0922',
             borderColor:'rgb(40,50,60)',
             tension:0.1,
+        
             
 
         }]
@@ -66,10 +68,12 @@ export function allowanceChart(){
     const config:ChartConfiguration = {
         type:'line',
         data:data,
+        
         options:{
             
             scales:{
-                x:{
+               
+                x:{ 
                     ticks:{
                         font:{
                             size:10,
@@ -77,17 +81,22 @@ export function allowanceChart(){
                         },color:'#092'
                     }
                 },  y:{
+                    min:0,
                     ticks:{
+                        
                         font:{
                             size:10,
                             
-                        },color:'#000'
-                    }
+                        },color:'#000',
+                    
+                    },
+                    
                 }
             },
             responsive:true,
             aspectRatio:1.1,
             maintainAspectRatio:true,
+        
         
            plugins:{
             

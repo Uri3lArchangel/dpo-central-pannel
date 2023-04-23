@@ -2,7 +2,7 @@
 export const OverviewDigitalData = {
     'tokens_sold':1000,
     'transfers':12,
-    'token_holders':8
+    'token_holders':0
 }
 
 export const OverviewChartData={
@@ -12,7 +12,15 @@ export const OverviewChartData={
         'pending':4
     },
     token:{
-    'token_allowance':[1000,900,1500,992,600,300,200,120,170,300,500],
-    'token_holders':[0,3,4,3,3,5,7,8,12]
+    'token_price':(price)=>{
+        price=Math.abs(price)
+        let a = new Array(12).fill(0)
+        a[(((new Date()).getMonth())+1)] = price
+        return a
+    },
+    'token_holders':()=>{
+        let a = new Array(12).fill(0)
+        return a
+    }
     }
 }
