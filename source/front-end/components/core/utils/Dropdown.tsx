@@ -4,16 +4,28 @@ import { HiCheck, HiChevronDown } from 'react-icons/hi2'
 const people = [
   {
     id: 1,
-    name: 'Admin',
+    name: 'President',
   },
   {
     id: 2,
-    name: 'Board Member',
+    name: 'Secretary Treasurer',
   },
   {
     id: 3,
+    name: 'Attorney',
+  },
+  {
+    id: 4,
+    name: 'Accountant',
+  },
+  {
+    id: 5,
     name: 'TA',
-  }
+  },
+  {
+    id: 6,
+    name: 'KYC',
+  },
 
 ]
 
@@ -25,7 +37,7 @@ interface props{
 }
 export let role:{id:number,name:string}
 export default function Drop({label}:props) {
-  const [selected, setSelected] = useState(people[2])
+  const [selected, setSelected] = useState(people[5])
   role=selected
   return (
     <Listbox value={selected}  onChange={setSelected}>

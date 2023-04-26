@@ -10,6 +10,7 @@ import {
   fetchRejectedRequests,
   fetchRequests,
 } from "../source/Backend/middlewares/fetchKycRequests";
+import { connectMongoInvestor } from "../source/Backend/DB/connectInvestorsMongo";
 export interface CookieProps {
   cookie?: string | undefined;
   res?: string;
@@ -52,6 +53,7 @@ export async function getServerSideProps(context: NextPageContext) {
     const cookie = context.req?.headers.cookie;
     const transfers = await fetchTransfers();
     let transferCount = transfers?.result?.length;
+    await connectMongoInvestor()
     const res = await fetchBalance();
     const approvedInvestorsCount: number = (await fetchApprovedRequests())
       .length;

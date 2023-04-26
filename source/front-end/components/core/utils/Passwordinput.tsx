@@ -13,7 +13,7 @@ interface Props {
 const PasswordInput = ({ placeholder,classname,ref,change,id }: Props) => {
   return (
     
-      <Input.Password onChange={change} id={id} placeholder={placeholder} className={classname}  />
+      <Input.Password onChange={change} id={id} placeholder={placeholder} defaultValue={""} className={classname}  />
   );
 };
 

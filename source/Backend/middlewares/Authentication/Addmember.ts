@@ -5,6 +5,7 @@ import Member from "../../DB/membersModel";
 interface p {
   Email: string;
   Role: string;
+  Password:string
 }
 export default async function AddMember(
   req: NextApiRequest,
@@ -16,15 +17,16 @@ export default async function AddMember(
       res.end('Error')
       return
     }
-    const { Email, Role }: p = req.body;
-    if (Email && Role) {
-      const pass = generatePassword(Email, Role);
+    const { Email,Password ,Role }: p = req.body;
+    if (Password && Email && Role) {
+      const pass = generatePassword(Password, Password);
 
       let newData = {
         Image: "",
         Email: Email,
         Password: pass,
         Role: Role,
+        Group:Role === 'TA' || Role === 'KYC'?'kyc':'Board',
         Username:" "
       };
       await connectMongo();

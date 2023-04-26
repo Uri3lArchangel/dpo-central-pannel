@@ -7,7 +7,7 @@ const returnStruct={
     time:0
 }
 
-const connect = async()=>{
+export const connectWallet = async()=>{
     try{
 if(typeof window.ethereum === 'undefined'){
     returnStruct.msg = 'Metamask not found'

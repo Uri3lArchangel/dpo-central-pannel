@@ -5,7 +5,7 @@ import { generatePassword } from "../../Utils/PasswordHashingFunction";
 
 
 export const changePassword = async(req:NextApiRequest)=>{
-const {passwordData,confirmPasswordData}=req.body
+const {passwordData,confirmPasswordData,currentPassword}=req.body
 
 let defaultEmail:string=' '
 if(req.cookies.session){
@@ -15,6 +15,6 @@ let newPassword = generatePassword(passwordData,passwordData)
 let update={
     Password:newPassword
 }
-await updateDB(defaultEmail,update)
+await updateDB(defaultEmail,currentPassword,update)
 
 }

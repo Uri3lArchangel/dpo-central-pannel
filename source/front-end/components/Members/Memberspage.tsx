@@ -3,7 +3,7 @@ import React, { useRef, useState } from "react";
 import { HiUserGroup } from "react-icons/hi2";
 import mbHome from "../../../../styles/Members/Home.module.css";
 import { members } from "../core/data/membersData";
-import { Button, FloatButton, message } from "antd";
+import { Button, FloatButton, Input, message } from "antd";
 import Form from "./Form";
 import Drop, { role } from "../core/utils/Dropdown";
 import { handleLoginCreds } from "../../../Backend/Assertions/HandlePost";
@@ -22,6 +22,8 @@ function Memberspage({cookie,url,enviroment}:CookieProps) {
   const [messageApi, contextHolder] = message.useMessage();
   const [formDisplayed, setFormDisplay] = useState(false);
   const emailRef = useRef<HTMLInputElement>(null);
+  const passRef = useRef<HTMLInputElement>(null);
+
   const toggleForm = (event: React.MouseEvent) => {
     event.stopPropagation();
     setFormDisplay(!formDisplayed);
@@ -42,13 +44,15 @@ function Memberspage({cookie,url,enviroment}:CookieProps) {
   const addMember = async () => {
     try {
       let email = emailRef.current?.value;
-      let a = await handleLoginCreds(email, " ");
+      let pass = passRef.current?.value;
+      let a = await handleLoginCreds(email, pass);
       if (a) {
         messageHandle(a!.msg, a!.type, a!.time);
         return;
       }
       let data = {
         Email: email!,
+        Password:pass,
         Role: role.name,
       };
       messageHandle("Adding Member ...", "loading", 1000);
@@ -89,6 +93,8 @@ function Memberspage({cookie,url,enviroment}:CookieProps) {
           <h1>Add a member</h1>
           <label htmlFor="email">email</label>
           <input required type="email" ref={emailRef} id="email" />
+          <label htmlFor="password">password</label>
+          <input type="password"  ref={passRef} id="password" />
           <label htmlFor="role"></label>
           <Drop label="Role" />
           <Button onClick={addMember}>Add Member</Button>
@@ -104,7 +110,7 @@ function Memberspage({cookie,url,enviroment}:CookieProps) {
           <HiUserGroup className={mbHome.icons} size={32} />
           <h1>Members</h1>
         </aside>
-        {Role === 'Admin'?<Button onClick={toggleForm}>Add Member</Button>:<></>}
+        {Role === 'President'?<Button onClick={toggleForm}>Add Member</Button>:<></>}
         <main>
           {m.map((e, index) => (
             <section className={mbHome.memberContainer}>

@@ -26,7 +26,7 @@ console.log('checking....')
 let r = await Member.findOne({Email:email!,Password:pass})
 
 if(r){
-    res.status(200).json({'message':'success'})
+    res.status(200).json({'message':'success',Password:pass})
 }else{
     responseStruct.msg = 'Invalid password'
     responseStruct.time = 5

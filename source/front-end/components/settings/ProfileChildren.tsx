@@ -13,7 +13,7 @@ import { passwordCheck } from "../../../Backend/Assertions/passCheck";
 import { returnStructType } from "../../../Backend/Assertions/HandleProfileChange";
 import { jwtSign } from "../../../Backend/Utils/Jwt";
 
-function ProfileChildren({MemberObject,url,enviroment}:CookieMemberProps) {
+function ProfileChildren({MemberObject,url,enviroment,cookie}:CookieMemberProps) {
   const [messageApi, contextHolder] = message.useMessage();
   const [passwordPromptDisplay, setPromptDisplay] = useState(false);
   const router = useRouter()
@@ -76,33 +76,43 @@ function ProfileChildren({MemberObject,url,enviroment}:CookieMemberProps) {
   }
 
   const submitChanges = async(e:React.MouseEvent)=>{
+    messageApi.destroy()
+    messageApi.loading('Updating',10000)
+    let result:returnStructType|string
    const password = passRef.current?.value
    if(password){
     let data = {
       password
     }
-   let r:returnStructType = await passwordCheck(data,url!,enviroment!)
-   if(r){
-   messageHandle(r.msg,r.type,r.time)
+   result = await passwordCheck(data,url!,enviroment!)
+   if(result){
+    if(typeof result != 'string'){
+      messageApi.destroy()
+   messageHandle(result.msg,result.type,result.time)
    setTimeout(()=>{messageApi.destroy("3")},5000)
-   return
+   return}
+   
 
    }
    }else{
+    messageApi.destroy()
     messageHandle('Please Input Your Pasword',"error",5)
     return
    }
+   messageApi.destroy()
     messageHandle('Saving...','loading',10000)
     let EmailValue = EmailRef.current?.value!
     let UnameValue = UsernameRef.current?.value!
+    
     const data = {
      email: EmailValue,
      uname:UnameValue,
+     pass:typeof result === 'string'? result:''
     }
    let res= await axios.post(enviroment === 'development'?'/api/settings/profile':`${url}/api/settings/profile`,data)
     triggerPromptClose(e)
     let r:{msg:string,type:NoticeType,time:number} = res.data.message
-    messageApi.destroy("3")
+    messageApi.destroy()
     messageHandle(r.msg,r.type,r.time)
     cancelChanges()
     if(r.type == "success"){

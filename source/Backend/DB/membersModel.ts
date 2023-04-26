@@ -15,6 +15,10 @@ const MembersSchema=new Schema({
         type:String,
         required:true
     },
+    Group:{
+        type:String,
+        required:true
+    },
     Username:String,
     
 })

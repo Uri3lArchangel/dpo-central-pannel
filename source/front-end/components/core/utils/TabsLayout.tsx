@@ -7,7 +7,7 @@ interface Props{
   TransferChildren?:React.ReactNode
 }
 
-const TabLayout = ({MintChildren,BurnChildren,TransferChildren}:Props) => (
+const TabLayout = ({MintChildren,TransferChildren}:Props) => (
   <Tabs 
   style={{marginTop:'10em'}}
     defaultActiveKey="1"
@@ -17,15 +17,11 @@ const TabLayout = ({MintChildren,BurnChildren,TransferChildren}:Props) => (
         label:'Mint',
         children:MintChildren,
         key:'1'
-      }, {
-        label:'Burn',
-        children:BurnChildren,
-        key:'2'
-      },
+      }, 
       {
         label:'Transfer',
         children:TransferChildren,
-        key:'3'
+        key:'2'
       },
     ]}
   />

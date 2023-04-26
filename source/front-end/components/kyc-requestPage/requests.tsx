@@ -1,15 +1,19 @@
-import { Table } from "antd";
+import { Button, Table, message } from "antd";
 import React from "react";
-import { columns, dataSource } from "../core/data/kycrequests";
+import { columns } from "../core/data/kycrequests";
 import { CookieMemberProps, kycdataInterface } from "../../../../pages/settings";
-
-function Requests({kycdata}:CookieMemberProps) {
+import {connectWallet} from '../../../Backend/web3/connectWallet'
+function Requests({kycdata,cookieData,isBatchReady}:CookieMemberProps) {
+  const [messageApi, contextHolder] = message.useMessage();
+const walletInit = async()=>{
+  await connectWallet()
+}
   const dataSource = (data:string | undefined) => {
     if(data){
     const kycdata = JSON.parse(data) as kycdataInterface[]
-   return ( kycdata.map((a, index) => {
+   return ( kycdata.map((a) => {
       return {
-        key: index,
+        key: a._id,
         date: a.Date,
         name: a.FirstName,
         address: a.Location,
@@ -18,17 +22,22 @@ function Requests({kycdata}:CookieMemberProps) {
         email: a.Email,
         wallet: a.Wallet,
         status: a.Status,
+        ApprovedByBoard:a.ApprovedByBoard
       };
     }))
   }
   };
   return (
+    <>
+    {contextHolder}
+   {isBatchReady? <Button onClick={walletInit} style={{marginTop:'15em'}}>Upload Batch Onchain</Button>:<></>}
     <Table
       scroll={{ x: true }}
-      style={{ margin: "12em auto", width: "98%" }}
+      style={{ margin: "2em auto", width: "98%" }}
       dataSource={dataSource(kycdata)}
-      columns={columns}
+      columns={columns(cookieData?.group,messageApi,isBatchReady)}
     />
+    </>
   );
 }
 

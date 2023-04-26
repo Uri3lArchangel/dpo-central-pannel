@@ -2,7 +2,6 @@ import Moralis from "moralis";
 import { EvmChain } from "@moralisweb3/common-evm-utils";
 import { startMorais } from "./startMorais";
 
-let isStarted = true;
 
 export const fetchTransfers = async () => {
   try {
@@ -12,7 +11,7 @@ export const fetchTransfers = async () => {
     const response  = await Moralis.EvmApi.token.getTokenTransfers({
         address,chain
     })
-    console.log(response.toJSON())
+    // console.log(response.toJSON())
     return response.toJSON()
   } catch (err) {
     console.log(err)

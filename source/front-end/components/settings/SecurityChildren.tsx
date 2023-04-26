@@ -33,6 +33,7 @@ function SecurityChildren({url,enviroment}:CookieProps) {
   };
   const triggerPromptClose = (e: React.MouseEvent) => {
     e.stopPropagation();
+    messageApi.destroy();
     setPromptDisplay(false);
   };
 
@@ -74,6 +75,7 @@ function SecurityChildren({url,enviroment}:CookieProps) {
     }
   };
   const cancelChangesSec = () => {
+    messageApi.destroy();
     (document.getElementById("passwd") as HTMLInputElement).value = "";
     (document.getElementById("confirm") as HTMLInputElement).value = "";
 
@@ -102,14 +104,15 @@ function SecurityChildren({url,enviroment}:CookieProps) {
     }
     const password = passRefSec.current?.value;
     if (password) {
-      let data = {
+      let dataPost = {
         password,
       };
-      let r: returnStructType = await passwordCheck(data,url!,enviroment!);
-      if (r) {
+      let result  = await passwordCheck(dataPost,url!,enviroment!);
+      if (result) {
+        if(typeof result != 'string'){
         messageApi.destroy("4");
 
-        messageHandle(r.msg, r.type, r.time);
+        messageHandle(result.msg, result.type, result.time);
         setTimeout(() => {
           messageApi.destroy("3");
         }, 5000);
@@ -121,8 +124,10 @@ function SecurityChildren({url,enviroment}:CookieProps) {
       messageHandle("Please Input Your Pasword", "error", 5);
       return;
     }
+    if(result ){
+      let currentPassword = result
     const data = {
-      passwordData,confirmPasswordData
+      passwordData,confirmPasswordData,currentPassword
     }
     let res = await axios.post(enviroment === 'development'?"/api/settings/security":`${url}/api/settings/security`, data);
     triggerPromptClose(e);
@@ -133,7 +138,10 @@ function SecurityChildren({url,enviroment}:CookieProps) {
     if (r.type == "success") {
       router.reload();
     }
+  }
+  }
   };
+
   return (
     <>
     {contextHolder}

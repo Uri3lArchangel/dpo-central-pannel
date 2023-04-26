@@ -27,6 +27,7 @@ const router = useRouter()
   };
 
   const formhelper = async() => {
+    try{
     let emailData = emailref.current?.value;
     let passData = passRef.current?.value;
     let a = await handleLoginCreds(emailData, passData);
@@ -48,7 +49,10 @@ const router = useRouter()
 
     } else {
      messageApi.destroy('1')
-     messageHandle('Incorrect Email / Password','error',5)
+     messageHandle('Incorrect Username / Password','error',5)
+    }}catch(err:any){
+      messageApi.destroy('1')
+      messageHandle(err.message,'error',5)
     }
   };
 
