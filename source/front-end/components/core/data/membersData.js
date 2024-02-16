@@ -13,33 +13,9 @@ export const members = [
     group: "Board",
   },
   {
-    name: "James",
-    role: "Secretary Treasurer",
+    name: "Ahmed",
+    role: "Vice President",
     image: member2,
     group: "Board",
-  },
-  {
-    name: "Jennifer",
-    role: "Attorney",
-    image: member6,
-    group: "Board",
-  },
-  {
-    name: "Frank",
-    role: "Accountant",
-    image: member4,
-    group: "Board",
-  },
-  {
-    name: "Stacy",
-    role: "TA",
-    image: member5,
-    group: "kyc",
-  },
-  {
-    name: "Uriel",
-    role: "KYC",
-    image: member3,
-    group: "kyc",
   },
 ];
