@@ -1,5 +1,5 @@
-import member1 from "../../../../../public/assets/members/member1.png";
-import member2 from "../../../../../public/assets/members/member2.png";
+import member1 from "../../../../../public/assets/members/m1.jpeg";
+import member2 from "../../../../../public/assets/members/m2.jpeg";
 import member3 from "../../../../../public/assets/members/member3.png";
 import member4 from "../../../../../public/assets/members/member4.png";
 import member5 from "../../../../../public/assets/members/member5.png";
