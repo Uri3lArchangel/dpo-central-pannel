@@ -7,15 +7,30 @@ import member6 from "../../../../../public/assets/members/member6.png";
 
 export const members = [
   {
-    name: "Authur",
-    role: "President",
+    name: "Arthur Smitherman",
+    role: "Manager",
     image: member1,
     group: "Board",
   },
   {
-    name: "Ahmed",
-    role: "Vice President",
+    name: "Ahmed Mujtaba ",
+    role: "Ecosystem Developer",
     image: member2,
+    group: "Board",
+  }, {
+    name: "Guni Rani",
+    role: " Website Developer",
+    image: null,
+    group: "Board",
+  }, {
+    name: "Alan Shearer",
+    role: " Digital Marketer ",
+    image: null,
+    group: "Board",
+  }, {
+    name: "Third Party",
+    role: "KYC",
+    image: null,
     group: "Board",
   },
 ];

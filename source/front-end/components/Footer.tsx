@@ -15,7 +15,10 @@ function Footer() {
       <figure className={ft.footerLogoContainer}>
         <Image src={footerLogo} alt='DPO' />
       </figure>
-      <div>Call Us: <CgPhone className={ft.icons} size={30} /> <Link href={'tel:+16473938417'}>+16473938417</Link></div>
+      <div>Toll Free: <CgPhone className={ft.icons} size={30} /> <Link href={'tel:+16473938417'}>1-877-317-2776</Link></div>
+      <div><CgPhone className={ft.icons} size={30} /> <Link href={'tel:+16473938417'}>(437) 500 4414</Link></div>
+      <div>Cell: <CgPhone className={ft.icons} size={30} /> <Link href={'tel:+16473938417'}> 647-393-8417</Link></div>
+
       <div>Email Us: <CgMail className={ft.icons} size={30} /><Link href={'mailto: adsco@directprivateoffers.ca'}>adsco@directprivateoffers.com</Link></div>
     </section>
     <section>
@@ -32,7 +35,7 @@ function Footer() {
     </section>
    </article>
    <article className={ft.termsOfUse}>
-   © 2022 Direct Private Offers All Rights Reserved. Terms of Use | Privacy Policy
+   © 2024 DPO Global LLC, All Rights Reserved. Terms of Use | Privacy Policy
    </article>
    </div>
   )
